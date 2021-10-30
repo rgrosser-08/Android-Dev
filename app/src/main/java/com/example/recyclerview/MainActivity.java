@@ -2,7 +2,6 @@ package com.example.recyclerview;
 
 import android.os.Bundle;
 
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -42,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(binding.toolbar);
 
+
         // Get a handle to the RecyclerView.
         mRecyclerView = findViewById(R.id.recyclerview);
         // Create an adapter and supply the data to be displayed.
@@ -52,15 +52,35 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
-
         binding.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                int wordListSize = mWordList.size();
+                // Add a new word to the wordList.
+                mWordList.addLast("+ Word " + wordListSize);
+                // Notify the adapter, that the data has changed.
+                mRecyclerView.getAdapter().notifyItemInserted(wordListSize);
+                // Scroll to the bottom.
+                mRecyclerView.smoothScrollToPosition(wordListSize);
             }
         });
+        binding.toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int size = mWordList.size();
+
+                for(int i = size; i > 20; i --){
+                    mWordList.remove(i);
+                    mRecyclerView.getAdapter().notifyItemRemoved(i);
+                }
+
+            }
+
+        });
+
+
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -78,6 +98,11 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            mWordList.clear();
+            for (int i = 0; i < 20; i++) {
+                mWordList.addLast("Word " + i);
+            }
+            mRecyclerView.getAdapter().notifyDataSetChanged();
             return true;
         }
 

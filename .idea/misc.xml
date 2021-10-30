@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ryang/AndroidStudioProjects/RecyclerView/app/src/main/res/drawable-anydpi/ic_add_for_fab.xml" value="0.2037037037037037" />
+        <entry key="..\:/Users/ryang/AndroidStudioProjects/RecyclerView/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2037037037037037" />
+        <entry key="..\:/Users/ryang/AndroidStudioProjects/RecyclerView/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2037037037037037" />
         <entry key="..\:/Users/ryang/AndroidStudioProjects/RecyclerView/app/src/main/res/layout/fragment_first.xml" value="0.1" />
         <entry key="..\:/Users/ryang/AndroidStudioProjects/RecyclerView/app/src/main/res/layout/wordlist_item.xml" value="0.1" />
         <entry key="..\:/Users/ryang/AndroidStudioProjects/RecyclerView/app/src/main/res/menu/menu_main.xml" value="0.25416666666666665" />
